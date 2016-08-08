@@ -1,6 +1,8 @@
 **API Tournament Manager**
 ---------
 
+Pré-requis : [HTTPie](https://github.com/jkbrzt/httpie)
+
 Sommaire
 -------------
 
