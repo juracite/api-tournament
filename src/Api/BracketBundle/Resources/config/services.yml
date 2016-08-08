@@ -1,0 +1,6 @@
+services:
+    app.twig_extension:
+        class: Api\BracketBundle\Twig\HtmldecodeExtension
+        public: false
+        tags:
+            - { name: twig.extension }

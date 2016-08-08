@@ -1,0 +1,12 @@
+api_bracket:
+    resource: "@ApiBracketBundle/Controller"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+brackets:
+    type:     rest
+    resource: Api\BracketBundle\Controller\BracketController

@@ -1,0 +1,5 @@
+Api\BracketBundle\Entity\Gestion:
+    exclusion_policy: ALL
+    properties:
+        json:
+            expose: true

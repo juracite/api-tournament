@@ -1,0 +1,12 @@
+<html><body>{% for bracket in brackets %}
+    {{ bracket.nom|htmlEntityDecode }}
+    {{ bracket.description|htmlEntityDecode }}
+    <p>
+        {% if bracket.etat == '1' %}
+            Le bracket est ouvert !
+        {% else %}
+            Le bracket est fermé !
+        {% endif %}
+    </p>
+    <pre>{{ bracket.json|htmlEntityDecode }}</pre>
+{% endfor %}</body></html>

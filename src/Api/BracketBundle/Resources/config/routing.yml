@@ -1,0 +1,3 @@
+ajax:
+    path:     /ajax
+    defaults: { _controller: BracketBundle:Bracket:ajax }
