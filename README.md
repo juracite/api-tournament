@@ -1,6 +1,5 @@
 **API Tournament Manager**
 ---------
-----------
 
 Sommaire
 -------------
