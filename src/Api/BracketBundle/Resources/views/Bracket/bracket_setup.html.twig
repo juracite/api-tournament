@@ -1,3 +1,7 @@
+{% if app.request.attributes.get('_route') == 'get_brackets' %}
 {% for bracket in brackets %}
 {{ bracket.json|htmlEntityDecode }}
 {% endfor %}
+{% else %}
+icicic
+{% endif %}

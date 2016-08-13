@@ -2,8 +2,7 @@
 
 namespace Api\BracketBundle\Controller;
 
-use Api\BracketBundle\Entity\Gestion;
-use Api\BracketBundle\Entity\User;
+use \Api\BracketBundle\Entity\Gestion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -13,7 +12,8 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\HttpFoundation\Response;
 
-class BracketController extends Controller {
+class BracketController extends Controller
+{
 
     /**
      * @return array
@@ -33,21 +33,9 @@ class BracketController extends Controller {
      * @View()
      * @ParamConverter("bracket", class="ApiBracketBundle:Gestion")
      */
-    public function getBracketAction(Gestion $bracket){
-        return array('bracket' => $bracket);
-    }
-
-    public function ajaxAction()
+    public function getBracketAction(Gestion $bracket)
     {
-
-        $brackets = $this->getDoctrine()->getRepository('ApiBracketBundle:Gestion')
-            ->findAll();
-
-        $template = $this->forward('ApiBracketBundle:Bracket:bracket_setup.html.twig', array('brackets' => $brackets))->getContent();
-
-        $json = json_encode($template);
-        $response = new Response($json, 200);
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+        $this->get('doctrine.orm.entity_manager')->getFilters()->disable('softdeleteable');
+        return array('brackets' => $bracket);
     }
 }
